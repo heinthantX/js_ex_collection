@@ -1,19 +1,19 @@
 function minMaxSum(arr) {
-  let maxSum = 0;
-  let minSum = Number.MAX_VALUE;
+  let max = arr[0];
+  let min = arr[0];
+  let sum = 0;
   for (let value of arr) {
-    let sum = 0;
-    for (let a of arr) {
-      sum += a;
+    sum += value;
+
+    if (value > max) {
+      max = value;
     }
-    sum -= value;
-    if (sum > maxSum) {
-      maxSum = sum;
-    }
-    if (sum < minSum) {
-      minSum = sum;
+    if (value < min) {
+      min = value;
     }
   }
+  let maxSum = sum - min;
+  let minSum = sum - max;
 
   console.log(minSum, maxSum);
 }
