@@ -2,8 +2,10 @@ function sockMerchant(n, ar) {
   let pairs = 0;
 
   for (let i = 0; i < n; i++) {
-    for (let j = 0; j < n; j++) {
-      if (ar[i] === ar[j] && i != j && ar[i]) {
+    if (!ar[i]) continue;
+    for (let j = i + 1; j < n; j++) {
+      if (!ar[j]) continue;
+      if (ar[i] === ar[j]) {
         pairs++;
         ar[i] = null;
         ar[j] = null;
